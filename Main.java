@@ -1,25 +1,21 @@
-package com.example.Week2;
+package com.example.Week5;
 
-public class Main{
-
+public class Main {
     public static void main(String[] args) {
+        SeatAllocation seatAllocation = new SeatAllocation();
 
-        Day1 dd= () -> System.out.println("Yo!");
+        Runnable task = () -> seatAllocation.allocateSeat(Thread.currentThread().getName());
 
-        print(dd);
-//        print(
-//                () -> {
-//                    System.out.println("Yo yo yo!");
-//                }
-//            }
-//        );
 
-//        Animal animal = new Animal();
-//        animal.day();
-//        print(animal);
-    }
 
-    static void print(Day1 d){
-        d.day();
+        Thread t1 = new Thread(task, "Alice");
+        Thread t2 = new Thread(task, "Bob");
+        Thread t3 = new Thread(task, "Charlie");
+        Thread t4 = new Thread(task, "David");  // This one will get "no seats" message
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
     }
 }

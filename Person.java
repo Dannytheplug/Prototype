@@ -1,21 +1,42 @@
-package com.example.Week2;
+package com.example.Week4;
 
+//Thursday, 17 July 2025
 public class Person {
+//    Thursday, 17 July 2025
+    protected String name;
+    protected PersonRole role;
 
-    public static void main(String[] args) {
-        Day2 d = () -> System.out.println("This student is reading.");
-
-        read(d);
-
-        Day1 d3 = () -> System.out.println("This student is playing.");
-
-        reader(d3);
+    public Person(String name, PersonRole role) {
+        this.name = name;
+        this.role = role;
     }
 
-    static void read(Day2 d){
-        d.reading();
+    public String getName() {
+        return name;
     }
-    static void reader(Day1 d3){
-        d3.day();
+
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public PersonRole getRole() {
+        return role;
+    }
+
+    public void setRole(PersonRole role) {
+        this.role = role;
+    }
+//
+//    public static void availablePatient(){
+//        System.out.println("good");
+//    }
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", role=" + role +
+                '}';
+    }
+
+
 }
